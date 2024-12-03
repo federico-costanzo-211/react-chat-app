@@ -1,3 +1,16 @@
+body, html {
+  max-width: 100vw;
+  max-height: 100vh;
+  
+  overflow: hidden;
+
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
 
 @keyframes react-logo-spin {
   from {
@@ -14,48 +27,18 @@
   }
 }
 
+
 .App {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.Messageboard {
-  background-color: #282c34;
+    background-color: #282c34;
+    
+    height: 100vh;
+    width: 100vw;
   
-  height: 90vh;
-  width: 100vw;
-
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-end;
-  
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.Textbox {
-  background-color: #aaaaaa;
-  height: 10vh;
-  width: 100vw;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-}
-
-#react-logo {
-  height: auto;
-  pointer-events: none;
-}
-
-.Message {
-  padding: 10px;
-  margin-left: 10px;
-  
-  border: solid 1px #ffffff;
-  border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: flex-end;
+    
+    font-size: calc(10px + 2vmin);
+    color: white;
 }

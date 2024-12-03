@@ -1,0 +1,25 @@
+@keyframes new-message-popup {
+    from {
+      transform: translate(-100%, 0);
+    }
+    to {
+      transform: translate(0px, 0);
+    }
+}
+
+.Message {
+    border: solid 1px #000000;
+    border-radius: 10px;
+    
+    background-color: #00b395;
+    color: #000000;
+  
+    padding: 15px 10px 15px 10px;
+    margin: 5px 10px 10px 5px;
+
+    animation-name: new-message-popup;
+    animation-duration: 0.4s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+}
+  
