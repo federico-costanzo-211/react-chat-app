@@ -1,15 +1,13 @@
-import logo from '../logo.svg';
+import { Messageboard } from './app-parts/Messageboard.js';
+import { Textbar } from './app-parts/Textbar.js';
+
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <div className="Messageboard">
-        <p class="Message">message</p>
-      </div>
-      <div className="Textbox">
-        <svg src={logo} alt="" id="react-logo"></svg>
-      </div>
+      <Messageboard />
+      <Textbar />
     </div>
   );
 }
