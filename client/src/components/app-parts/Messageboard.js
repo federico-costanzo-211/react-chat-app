@@ -1,18 +1,11 @@
 import { Message } from './Message.js'
-import { useState } from 'react';
 
 import styles from './Messageboard.module.css'
 
-function Messageboard(){
-    const [ messageList, setMessageList ] = useState([
-      <Message text="testing" />,
-      <Message text="testing 2" />,
-      <Message text="testing 3" />
-    ]);
-
-    return (
+function Messageboard({messageList}){
+  return (
       <div className={ styles.Messageboard }>
-        {messageList}
+        { messageList.map((message, index) => <Message text={message} key={index + 1}/>) }
       </div>
     );
 }

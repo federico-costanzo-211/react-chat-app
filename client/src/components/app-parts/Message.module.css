@@ -1,11 +1,18 @@
 @keyframes new-message-popup {
-    from {
+    0% {
       transform: translate(-100%, 0);
+      font-size: 0px;
     }
-    to {
+    30% {
       transform: translate(0px, 0);
+      font-size: 0px;
     }
-}
+    100% {
+      width:1;
+      height:1;
+      font-size:100%;
+    }
+  }
 
 .Message {
     border: solid 1px #000000;
@@ -16,10 +23,13 @@
   
     padding: 15px 10px 15px 10px;
     margin: 5px 10px 10px 5px;
+    max-width: 80vw;
+
+    word-wrap: break-word;
+    word-break: break-all;
 
     animation-name: new-message-popup;
-    animation-duration: 0.4s;
+    animation-duration: 0.5s;
     animation-timing-function: ease-out;
-    animation-fill-mode: forwards;
 }
   
