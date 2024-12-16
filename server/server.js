@@ -7,6 +7,7 @@ require('dotenv').config();
 
 const db = require("./db");
 const User = require('./models/User');
+const Message = require("./models/Message");
 
 const authenticateToken = require('./middleware/authenticateToken.js');
 
