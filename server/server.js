@@ -17,7 +17,7 @@ db.authenticate()
     .then(() => { console.log("Connessione riuscita."); })
     .catch((err) => { console.error(`Connessione non riuscita. (${err})`); });
 
-db.sync({ alter: true })
+db.sync({alter: true})
     .then(() => console.log('Database sincronizzato!'))
     .catch((err) => console.error(`Errore nella sincronizzazione. (${err})`));
 
@@ -25,6 +25,22 @@ db.sync({ alter: true })
 
 const app = express();
 app.use(bodyParser.json());
+
+app.get('/', async(req, res) => {
+    try {
+        const messages = await Message.findAll({
+            attributes: ['author', 'content'],
+            limit: 25,
+            order: [['message_id', 'DESC']]
+        }).reverse();
+
+        res.status(200).json({message_list: messages});
+    } catch(err) {
+        res.status(500).json({message: 'Errore interno del server.'});
+    }
+});
+
+//------------------------
 
 app.post('/register', async (req, res) => {
     const { username, password } = req.body;
