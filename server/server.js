@@ -27,14 +27,20 @@ const app = express();
 app.use(bodyParser.json());
 
 app.get('/', async(req, res) => {
+    const { message_number } = req.body;
+    
+    if (typeof Number(message_number) !== "number"){
+        res.status(400).json({message: 'Errore: numero non valido.'});
+    };
+
     try {
         const messages = await Message.findAll({
-            attributes: ['author', 'content'],
-            limit: 25,
+            attributes: ['message_id', 'author', 'content'],
+            limit: Number(message_number),
             order: [['message_id', 'DESC']]
-        }).reverse();
+        });
 
-        res.status(200).json({message_list: messages});
+        res.status(200).json({message_list: messages.reverse()});
     } catch(err) {
         res.status(500).json({message: 'Errore interno del server.'});
     }
