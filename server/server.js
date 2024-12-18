@@ -1,4 +1,5 @@
 const express = require('express');
+const vld = require('express-validator');
 const bodyParser = require('body-parser');
 const argon2 = require('argon2');
 const jwt = require('jsonwebtoken');
@@ -45,6 +46,24 @@ app.get('/', async(req, res) => {
         res.status(500).json({message: 'Errore interno del server.'});
     }
 });
+
+app.post('/', authenticateToken, async (req, res) => {
+    const { content } = req.body; //body.user from authenticateToken middleware
+
+    try {
+        const newMessage = await Message.create({
+            author: req.user.username,
+            content
+        });
+        
+        res.status(200).json({
+            message: 'Messaggio inviato.',
+            sent: newMessage
+        });
+    } catch(err){
+        res.status(500).json({message: 'Errore interno del server.'});
+    }
+})
 
 //------------------------
 

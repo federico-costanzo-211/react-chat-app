@@ -12,6 +12,8 @@
 /build
 
 # misc
+server/middleware/jwtTest.js
+
 .DS_Store
 
 */.env
